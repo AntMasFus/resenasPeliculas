@@ -57,7 +57,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
             }
         }
 
-        // Si se extrajo un username y no hay autenticación en el contexto de seguridad
+        // Si se extrajo un username y no hay autenticación
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             var userDetails = userDetailsService.loadUserByUsername(username);
             if (jwtUtil.validateToken(token)) {
